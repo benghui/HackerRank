@@ -72,3 +72,114 @@ function plusMinus(arr) {
     console.log((nilCount / n).toFixed(6))
 }
 ```
+
+### A Very Big Sum 
+
+```javascript
+function aVeryBigSum(ar) {
+    let total = ar.reduce((accumulator, currentValue) => accumulator + currentValue, 0);    
+    return total;
+}
+```
+
+### Birthday Candles
+
+```javascript
+function birthdayCakeCandles(ar) {
+    let count = 0;
+    let max = Math.max(...ar)
+    for (let i = 0; i < ar.length; i++){
+        if ( ar[i] === max ){
+            count++
+        }
+    }
+    return count
+}
+```
+
+### Mini-Max Sum
+
+```javascript
+function miniMaxSum(arr) {
+    let min = Math.min(...arr)
+    let max = Math.max(...arr)
+    let sum = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+    console.log(sum-max, sum-min)
+}
+```
+
+### Compare the Triplets
+
+```javascript
+function compareTriplets(a, b) {
+    let outputA = 0;
+    let outputB = 0;
+    for (let i=0; i < a.length; i++){
+        if (a[i] < b[i]){
+            outputB++
+        } else if (a[i] > b[i]) {
+            outputA++
+        }
+    }
+    
+    let output = [outputA, outputB]
+    return output
+}
+```
+
+### Grading Students
+
+```javascript
+function gradingStudents(grades) {
+    return grades.map(grade => {
+        if(grade < 38 || grade % 5 < 3) {
+            return grade;
+        } else if (grade % 5 >= 3){
+            return (grade + (5 - grade % 5))
+        } 
+    }
+}
+```
+
+### Apple & Orange
+
+```javascript
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+
+    let appleOutput = 0;
+    let orangeOutput = 0;
+
+    let apple = apples.map(apples => apples + a);
+    let orange = oranges.map(oranges => oranges + b);
+
+    apple.forEach(apple => {
+        if (apple >= s && apple <= t) {
+            appleOutput++;
+        }
+    });
+    
+    orange.forEach(orange => {
+        if (orange >= s && orange <= t) {
+            orangeOutput++;
+        }
+    });
+    
+    console.log(appleOutput);
+    console.log(orangeOutput);
+}
+```
+
+### Kangaroo
+
+```javascript
+function kangaroo(x1, v1, x2, v2) {
+    if (v1 < v2)
+        return "NO";
+    else {
+        if ((v1 != v2) && ((x2 - x1) % (v1 - v2)) === 0)
+            return "YES";
+        else
+            return "NO";
+    }
+}
+```
