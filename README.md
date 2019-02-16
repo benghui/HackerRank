@@ -183,3 +183,86 @@ function kangaroo(x1, v1, x2, v2) {
     }
 }
 ```
+
+### Breaking the Records
+
+```javascript
+function breakingRecords(scores) {
+    let countHigh = 0;
+    let countLow = 0;
+    let min = scores[0];
+    let max = scores [0];
+    for (let i=1; i < scores.length; i++){
+        
+        if (scores[i] < min){
+            min = scores[i];
+            countLow++;
+        }
+        if (scores[i] > max){
+            max = scores[i];
+            countHigh++;
+        }
+    }
+    return [countHigh, countLow]
+}
+```
+
+### Migratory Birds
+
+```javascript
+function migratoryBirds(arr) {
+    let count = {}
+    arr.forEach(i => {count[i] = (count[i]||0)+1})
+    return Object.keys(count).reduce((a,b) => count[a] < count[b] ? b : a)
+}
+```
+
+### Bon Appétit
+
+```javascript
+function bonAppetit(bill, k, b) {
+    let cost = b - ((bill.reduce((s, n) => s + n, 0) - bill[k]) / 2);
+    console.log((cost === 0) ? "Bon Appetit" : cost )
+}
+```
+
+### Divisible Sum Pairs
+
+```javascript
+function divisibleSumPairs(n, k, ar) {
+    let count = 0;
+    for (let i = 0; i < n; i++) {
+        for (let j = i+1; j < n; j++) {
+            if ((ar[i] + ar [j]) % k === 0) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+```
+
+### Cats and a Mouse
+
+```javascript
+function catAndMouse( x, y, z) {
+        let temp = Math.abs(z-y) - Math.abs(z-x);
+        if ( temp > 0) {
+            return “Cat A”;
+        } else if ( temp < 0) {
+            return “Cat B”;
+        } else if( temp == 0) {
+            return “Mouse C”;
+        }
+}
+```
+
+### Hurdle Race
+
+```javascript
+function hurdleRace(k, height) {
+    let dose = Math.max(...height) - k;
+    if (dose < 0) return 0;
+    else return dose;
+}
+```
